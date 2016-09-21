@@ -8,14 +8,8 @@ services:
       - 8000
     command: gcloud beta emulators datastore start --project=pi-docker --host-port mydatastore:8000 --no-store-on-disk
 
-  curl:
+  mytest:
     image: appropriate/curl
     command: curl mydatastore:8000
-    depends_on:
-      - mydatastore
-
-  curl-bad:
-    image: appropriate/curl
-    command: curl badhost:8000
     depends_on:
       - mydatastore
