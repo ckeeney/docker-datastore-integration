@@ -13,6 +13,7 @@ services:
     command: curl mydatastore:8000
     depends_on:
       - mydatastore
+
   curl-bad:
     image: appropriate/curl
     command: curl badhost:8000
