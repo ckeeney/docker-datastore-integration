@@ -1,0 +1,18 @@
+stages:
+    - test
+    - cleanup
+
+cleanup:
+  stage: cleanup
+  script:
+    - docker-compose down --remove-orphans
+
+test:
+    stage: test
+    script:
+        - docker-compose run curl
+
+test-fails:
+    stage: test
+    script:
+        - docker-compose run curl-bad
